@@ -55,6 +55,20 @@ body {
   background: #eee;
 }
 
+a {
+  color: #333;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+  line-height: 1.25em;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
 .login {
   border-top: 1px solid #31d1e8;
   padding: 10px;
@@ -624,17 +638,19 @@ body {
       color:#31d1e8; 
     }
   }
-  .mdl-layout__drawer-button:not(:active):after {
-    animation: myRipple 1s ease-out;
-  }
-
   header .mdl-navigation__link{
     text-transform: uppercase;
     color: #eee;
     font-size: 14px;
-    &:hover, &:focus, &:active{
+    &:hover, &:focus, &:active, &.active{
       color:white;
       box-shadow:inset 0 -4px 0 0 white; 
+    }
+
+    .material-icons{
+      position: relative;
+      top: 6px;
+      margin-right: 5px;
     }
   }
 }
@@ -656,12 +672,12 @@ body {
 .alert ::-moz-selection { background: #F44336 !important; color: #fff }
 .alert ::selection { background: #F44336 !important; color: #fff}
 
-.mdl-layout__drawer-button,.withRipple {
+.withRipple {
   position: relative;
   overflow: hidden;
 }
 
-.mdl-layout__drawer-button:after,.withRipple:after {
+.withRipple:after {
   content: '';
   display: block;
   position: absolute;
@@ -727,21 +743,15 @@ body {
 .breadcrumb__box{
   background: #fafafa;
   width: 100%;
-  padding: 8px;
-  padding: 12px 20px;
+  padding: 15px 20px;
   border-radius: 4px;
-  color:#999;
-  margin-bottom: 8px;
+  color:#333;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-color: rgba(0,0,0,.1);
 }
 
 .breadcrumb{
-  color:#4d4d4d;
-  &:hover,&:focus,&:active{
-    text-decoration: none;
-    color:#4d4d4d;
-  }
   &:after {
     content: "\e7c3";
     font-family: "Material-Design-Icons";
@@ -758,11 +768,16 @@ body {
   }
 }
 
-.mdl-data-table{
-  width: 100%;
+.mdl-typography--headline {
+  padding: 15px 20px;
 }
 
-.link-edit,.link-delete{
+.mdl-data-table{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.link-visibility,.link-edit,.link-delete{
   text-decoration: none;
   position: relative;
   i {
@@ -780,6 +795,7 @@ body {
   }
 }
 .link-edit{
+  margin-left: 20px;
   &:hover, &:focus{
     color:#3f51b5;
   }
@@ -825,4 +841,22 @@ body {
   .mdl-ripple{
     background: rgba(#F44336, .5);
   }
+}
+
+.headline-title{
+  width: 100%;
+  position: relative;
+}
+
+.mdl-button--fab.mdl-button--colored{
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: #F5B923;
+  &:hover{
+    background: #F5B923;
+  }
+}
+.btn-publish{
+  background: #F5B923;
 }

@@ -1,0 +1,118 @@
+<div class="logado">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title"><img src="assets/images/travelplus-solid.png" alt="Travel Plus Turismo"></span>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link withRipple" href="#/ofertas/ativas">Ativas</a>
+          <a class="mdl-navigation__link withRipple" href="#/ofertas/rascunhos">Rascunhos</a>
+          <a class="mdl-navigation__link withRipple active" href="#/ofertas/expiradas">Expiradas</a>
+          <a class="mdl-navigation__link withRipple" href="http://travelplustur.com.br" target="_blank">Abrir o site</a>
+          <a class="mdl-navigation__link withRipple" href="" ng-click="logOff()">Sair</a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Travel Plus</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link withRipple" href="#/ofertas/ativas">Ativas</a>
+        <a class="mdl-navigation__link withRipple" href="#/ofertas/rascunhos">Rascunhos</a>
+        <a class="mdl-navigation__link withRipple" href="#/ofertas/expiradas">Expiradas</a>
+        <a class="mdl-navigation__link withRipple" href="http://travelplustur.com.br" target="_blank">Abrir o site</a>
+        <a class="mdl-navigation__link withRipple" href="" ng-click="ofertas.logOff()">Sair</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <div class="mdl-grid">
+          <!--div class="alert error block"><b>Erro ao conectar com o banco de dados travelplustur.</b></div-->
+
+          <div class="breadcrumb__box">
+            <a href="#/ofertas" class="breadcrumb">Ofertas</a>
+            Expiradas
+          </div>
+
+          <div class="headline-title">
+            <h1 class="mdl-typography--headline">Listagem de ofertas expiradas</h1>
+            <span for="ttNova" class="mdl-tooltip">Nova oferta</span>
+            <a id="ttNova" href="#/ofertas/nova" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+              <i class="material-icons">add</i>
+            </a>           
+          </div>
+
+          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Título</th>
+                <th>Data de publicação</th>
+                <th>Expirada em</th>
+                <th>Valor</th>
+                <th>Hotéis</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens para Porto Seguro 4 noites</td>
+                <td>12/09/2016</td>
+                <td>31/08/2016</td>
+                <td>R$ 2.200,00</td>
+                <td>4</td>
+                <td>
+                  <span for="tt1" class="mdl-tooltip">Visualizar oferta</span>
+                    <a id="tt1" href="" class="link-visibility mdl-js-ripple-effect">
+                    <i class="material-icons">visibility</i>
+                    <span class="mdl-ripple"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens para Campos do Jordão 2 noites</td>
+                <td>12/09/2016</td>
+                <td>31/08/2016</td>
+                <td>R$ 2.200,00</td>
+                <td>4</td>
+                <td>
+                  <span for="tt12" class="mdl-tooltip">Visualizar oferta</span>
+                    <a id="tt12" href="" class="link-visibility mdl-js-ripple-effect">
+                    <i class="material-icons">visibility</i>
+                    <span class="mdl-ripple"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens para Curitiba 2 noites</td>
+                <td>12/09/2016</td>
+                <td>31/08/2016</td>
+                <td>R$ 2.200,00</td>
+                <td>4</td>
+                <td>
+                  <span for="tt13" class="mdl-tooltip">Visualizar oferta</span>
+                    <a id="tt13" href="" class="link-visibility mdl-js-ripple-effect">
+                    <i class="material-icons">visibility</i>
+                    <span class="mdl-ripple"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens para o nordeste 3 noites</td>
+                <td>12/09/2016</td>
+                <td>31/08/2016</td>
+                <td>R$ 2.200,00</td>
+                <td>4</td>
+                <td>
+                  <span for="tt14" class="mdl-tooltip">Visualizar oferta</span>
+                    <a id="tt14" href="" class="link-visibility mdl-js-ripple-effect">
+                    <i class="material-icons">visibility</i>
+                    <span class="mdl-ripple"></span>
+                  </a>
+                </td>
+              </tr>             
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="logado">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title"><img src="assets/images/travelplus-solid.png" alt="Travel Plus Turismo"></span>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link withRipple" href="#/ofertas/ativas">Ativas</a>
+          <a class="mdl-navigation__link withRipple" href="#/ofertas/rascunhos">Rascunhos</a>
+          <a class="mdl-navigation__link withRipple" href="#/ofertas/expiradas">Expiradas</a>
+          <a class="mdl-navigation__link withRipple" href="http://travelplustur.com.br" target="_blank">Abrir o site</a>
+          <a class="mdl-navigation__link withRipple" href="" ng-click="logOff()">Sair</a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Travel Plus</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link withRipple" href="#/ofertas/ativas">Ativas</a>
+        <a class="mdl-navigation__link withRipple" href="#/ofertas/rascunhos">Rascunhos</a>
+        <a class="mdl-navigation__link withRipple" href="#/ofertas/expiradas">Expiradas</a>
+        <a class="mdl-navigation__link withRipple" href="http://travelplustur.com.br" target="_blank">Abrir o site</a>
+        <a class="mdl-navigation__link withRipple" href="" ng-click="ofertas.logOff()">Sair</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <div class="mdl-grid">
+          <!--div class="alert error block"><b>Erro ao conectar com o banco de dados travelplustur.</b></div-->
+
+          <div class="breadcrumb__box">Ofertas</div>
+          
+          <div class="headline-title">
+            <h1 class="mdl-typography--headline">Utilização</h1>
+            <a href="#/ofertas/nova" title="Nova oferta" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+              <i class="material-icons">add</i>
+            </a>           
+          </div>
+
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Status</th>
+                <th>Quantidade</th>
+                <th>Última modificação</th>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric"><a href="#/ofertas/ativas">Ativas</a></td>
+                <td>10</td>
+                <td>02/11/2016</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric"><a href="#/ofertas/rascunhos">Rascunhos</a></td>
+                <td>1</td>
+                <td>02/11/2016</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric"><a href="#/ofertas/expiradas">Expiradas</a></td>
+                <td>4</td>
+                <td>31/08/2016</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

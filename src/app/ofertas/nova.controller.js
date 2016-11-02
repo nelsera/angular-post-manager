@@ -3,10 +3,10 @@
 
   angular
     .module('travelplusManager')
-    .controller('OfertasController', OfertasController);
+    .controller('NovaController', NovaController);
 
   /** @ngInject */
-  function OfertasController($location, $window) {
+  function NovaController($location, $window) {
     if (!$window.localStorage.getItem('logged')) {
       $location.path('/');
     }

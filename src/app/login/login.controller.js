@@ -6,7 +6,7 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController($timeout, webDevTec, toastr, $interval, $location, $window) {
+  function LoginController($timeout, $interval, $location, $window) {
     if (localStorage.getItem('logged')) {
       $location.path('/ofertas');
     }
@@ -20,14 +20,6 @@
         opacity: 1},
         400);
       });
-
-
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.creationDate = 1477776233744;
-    vm.showToastr = showToastr;
-
-    activate();
 
     var checkAutofill = $interval(function (){
       if (vm.username && vm.password) {
@@ -74,26 +66,6 @@
         }
       },3000);
     };
-    
-    function activate() {
-      getWebDevTec();
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
-    }
-
-    function showToastr() {
-      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-      vm.classAnimation = '';
-    }
-
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
-
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
-    }
 
     $(window, document, undefined).ready(function() {
 
