@@ -1,0 +1,35 @@
+<div class="login">
+  <hgroup>
+    <h1><img src="assets/images/travelplus.gif" alt="Travel Plus Turismo"></h1>
+  </hgroup>
+  <form name="doLogin" novalidate>
+    <div class="alert error">
+      Usuário e/ou senha inválidos!
+    </div>
+
+    <div class="group">
+      <input type="text" name="username" maxlength="50" ng-model="login.username" required><span class="highlight"></span><span class="bar"></span>
+      <label>Usuário</label>
+    </div>
+    <div class="group">
+      <input type="password" name="password" maxlength="8" ng-model="login.password" required><span class="highlight"></span><span class="bar"></span>
+      <label>Senha</label>
+    </div>
+    <button type="submit" class="button buttonBlue" ng-click="login.tryLogin()" ng-disabled="doLogin.$invalid">
+      <span>Entrar</span>
+      <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+
+    <div id="loader">
+      <h1 class="loader__text">
+          <div class="cssload-thecube">
+              <div class="cssload-cube cssload-c1"></div>
+              <div class="cssload-cube cssload-c2"></div>
+              <div class="cssload-cube cssload-c4"></div>
+              <div class="cssload-cube cssload-c3"></div>
+          </div>
+      </h1>
+    </div>
+
+  </form>
+</div>
