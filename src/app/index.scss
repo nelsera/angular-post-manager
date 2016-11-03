@@ -850,8 +850,8 @@ a:hover, a:focus {
 
 .mdl-button--fab.mdl-button--colored{
   position: absolute;
-  bottom: 12px;
-  right: 12px;
+  bottom: 15px;
+  right: 20px;
   background: #F5B923;
   &:hover{
     background: #F5B923;
@@ -859,4 +859,72 @@ a:hover, a:focus {
 }
 .btn-publish{
   background: #F5B923;
+}
+
+.mdl-content-white{
+  background: #fafafa;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.form__new{
+  .mdl-typography--title{
+    margin: 5px 0 0 0;
+  }
+  .mdl-textfield{
+    width: 100%;
+  }
+  .mdl-textfield__input {
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+  .mdl-js-textfield--date{
+    margin-top: -5px;
+  }
+  input[type=date].mdl-textfield__input{
+    padding-right: 0;
+    &:focus{
+      padding-left: 0;
+      text-indent: 0!important;
+    }
+    &.mdl-js-textfield--dateNull{
+      text-indent: -99999px
+    }
+  }
+  .mdl-button--colored{
+    background: rgba(0,0,0,.26);
+    user-select:none;
+    &:hover,&:focus,&:active{
+      background: rgba(0,0,0,.26);
+    }
+    &:active{
+      background: #31d1e8;
+    }
+    i {
+      position: relative;
+      margin-right: 10px;
+    }
+  }
+
+  .mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+  .mdl-textfield--floating-label.is-focused .mdl-textfield__label{
+    color:#31d1e8;
+    &:after{
+      background-color: #31d1e8;
+    }
+  }
+  .mdl-button{
+    text-transform: initial;
+    margin-bottom: 30px;
+  }
+  .mdl-textcounter{
+    position: absolute;
+    right: 0px;
+    top: 24px;
+    color: rgba(0,0,0,.26);
+  }
+}
+.hidden{
+  display: none!important;
 }
