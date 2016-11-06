@@ -8,7 +8,7 @@
           <a class="mdl-navigation__link withRipple" href=""><i class="material-icons">delete</i>Descartar</a>
           <a class="mdl-navigation__link withRipple" href=""><i class="material-icons">visibility</i>Visualizar</a>
           <a class="mdl-navigation__link withRipple" href=""><i class="material-icons">drafts</i>Salvar rascunho</a>
-          <a class="mdl-navigation__link withRipple btn-publish" href=""><i class="material-icons">send</i>Publicar</a>
+          <button class="mdl-navigation__link withRipple btn-publish" ng-disabled="form__new.$invalid"><i class="material-icons">send</i>Publicar</button>
         </nav>
       </div>
     </header>
@@ -19,7 +19,7 @@
         <a class="mdl-navigation__link withRipple" href="#/ofertas/rascunhos">Rascunhos</a>
         <a class="mdl-navigation__link withRipple" href="#/ofertas/expiradas">Expiradas</a>
         <a class="mdl-navigation__link withRipple" href="http://travelplustur.com.br" target="_blank">Abrir o site</a>
-        <a class="mdl-navigation__link withRipple" href="" ng-click="ofertas.logOff()">Sair</a>
+        <a class="mdl-navigation__link withRipple" href="" ng-click="logOff()">Sair</a>
       </nav>
     </div>
     <main class="mdl-layout__content">
@@ -36,79 +36,81 @@
               <h1 class="mdl-typography--headline">Cadastre uma nova oferta</h1>           
             </div>
             <div class="mdl-content-white mdl-cell mdl-cell--12-col">
-              <form class="form__new mdl-grid">
+              <form name="form__new" class="form__new mdl-grid" novalidate>
                 <div class="mdl-cell mdl-cell--12-col">
                   <h2 class="mdl-typography--title">Destino</h2>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.titulo" class="mdl-textfield__input" type="text" id="sample1" maxlength="100">
+                    <input ng-model="nova.titulo" class="mdl-textfield__input" type="text" id="sample1" maxlength="100" required>
                     <label class="mdl-textfield__label" for="sample1">Título</label>
                     <span class="mdl-textcounter">{{100 - nova.titulo.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.descricao_oferta" class="mdl-textfield__input" type="text" id="sample2" maxlength="250">
+                    <input ng-model="nova.descricao_oferta" class="mdl-textfield__input" type="text" id="sample2" maxlength="250" required>
                     <label class="mdl-textfield__label" for="sample2">Descrição da oferta</label>
                     <span class="mdl-textcounter">{{250 - nova.descricao_oferta.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.descricao_destino" class="mdl-textfield__input" type="text" id="sample3" maxlength="250">
+                    <input ng-model="nova.descricao_destino" class="mdl-textfield__input" type="text" id="sample3" maxlength="250" required>
                     <label class="mdl-textfield__label" for="sample3">Descrição do destino</label>
                     <span class="mdl-textcounter">{{250 - nova.descricao_destino.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.preco" class="mdl-textfield__input" type="text" id="sample4" maxlength="100">
+                    <input ng-model="nova.preco" class="mdl-textfield__input" type="text" id="sample4" maxlength="100" required>
                     <label class="mdl-textfield__label" for="sample4">Preço</label>
                     <span class="mdl-textcounter">{{100 - nova.preco.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-js-textfield--date mdl-textfield--floating-label">
-                    <input ng-model="nova.data_expiracao" ng-class="{'mdl-js-textfield--dateNull': !nova.data_expiracao.length}" ng-focus="nova.datepicker(nova.data_expiracao)" ng-blur="nova.datepicker(nova.data_expiracao)" class="mdl-textfield__input" type="date" id="sample5">
+                    <input ng-model="nova.data_expiracao" ng-class="{'mdl-js-textfield--dateNull': !nova.data_expiracao.length}" ng-focus="nova.datepicker(nova.data_expiracao)" ng-blur="nova.datepicker(nova.data_expiracao)" class="mdl-textfield__input" type="date" id="sample5" required>
                     <label class="mdl-textfield__label" for="sample5">Data da expiração</label>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.identificacao_parceiro" class="mdl-textfield__input" type="text" id="sample6" maxlength="100">
+                    <input ng-model="nova.identificacao_parceiro" class="mdl-textfield__input" type="text" id="sample6" maxlength="100" required>
                     <label class="mdl-textfield__label" for="sample6">Identificação do parceiro</label>
                     <span class="mdl-textcounter">{{100 - nova.identificacao_parceiro.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
-                  <input id="ifDestino" class="hidden" type="file">
+                  <input id="ifDestino" class="hidden" type="file" accept="image/*" ng-model="nova.foto_destino" valid-file required>
                   <label for="ifDestino" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
                     <i class="material-icons">photo</i>Inserir foto do destino
                   </label>
+                  <img ng-show="nova.foto_destino" class="img-preview-filename" src="{{nova.foto_destino}}" width="100%">
                 </div>
                 <div class="mdl-cell mdl-cell--12-col">
                   <h2 class="mdl-typography--title">Hotéis</h2>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
+                    <input ng-model="nova.nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100" required>
                     <label class="mdl-textfield__label" for="sample7">Nome do hotel</label>
                     <span class="mdl-textcounter">{{100 - nova.nome_hotel.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                    <input ng-model="nova.preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100" required>
                     <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
                     <span class="mdl-textcounter">{{100 - nova.preco_hotel.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
-                  <input id="ifHotel" class="hidden" type="file">
+                  <input id="ifHotel" class="hidden" type="file" accept="image/*" ng-model="nova.foto_hotel" valid-file required>
                   <label for="ifHotel" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
                     <i class="material-icons">photo</i>Inserir foto do hotel
                   </label>
+                  <img ng-show="nova.foto_hotel" class="img-preview-filename" src="{{nova.foto_hotel}}" width="50%">
                 </div>
               </form>
             </div>

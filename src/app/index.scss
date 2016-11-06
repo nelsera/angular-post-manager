@@ -294,19 +294,19 @@ a:hover, a:focus {
     cursor: pointer;
     transition: all 0.15s ease;
   }
-  .button:focus:not([disabled="disabled"])  { 
+  .button:focus:not([disabled])  { 
     outline: 0;
     box-shadow: inset 0 0 0 2px #fff;
     font-size: 15px;
   }
-  .button:active:not([disabled="disabled"]),
-  .button.active:not([disabled="disabled"]) { 
+  .button:active:not([disabled]),
+  .button.active:not([disabled]) { 
     border-color: #FAFAFA; 
     box-shadow: none; 
     font-size: 15px;
     border-radius: 3px;
   }
-  .button[disabled="disabled"]{
+  .button[disabled]{
     opacity: .5;
     cursor: not-allowed;
   }
@@ -642,7 +642,7 @@ a:hover, a:focus {
     text-transform: uppercase;
     color: #eee;
     font-size: 14px;
-    &:hover, &:focus, &:active, &.active{
+    &:hover:not(button), &:focus:not(button), &:active:not(button), &.active:not(button){
       color:white;
       box-shadow:inset 0 -4px 0 0 white; 
     }
@@ -859,6 +859,19 @@ a:hover, a:focus {
 }
 .btn-publish{
   background: #F5B923;
+  border: 1px solid #F5B923;
+  outline: 0;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 62px!important;
+  box-sizing: border-box;
+  &[disabled]{
+    background: #f7ce68;
+    cursor: not-allowed;
+  }
+  &:focus:not([disabled])  { 
+    box-shadow: inset 0 0 0 1px #fff;
+  }
 }
 
 .mdl-content-white{
@@ -866,6 +879,7 @@ a:hover, a:focus {
   border-radius: 4px;
   border: 1px solid #ccc;
   border-color: rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
 }
 
 .form__new{
@@ -875,9 +889,16 @@ a:hover, a:focus {
   .mdl-textfield{
     width: 100%;
   }
-  .mdl-textfield__input {
+  .mdl-textfield__input,
+  .mdl-textfield.is-invalid .mdl-textfield__input {
+    border-bottom: 1px solid rgba(0,0,0,.2);
     padding-right: 20px;
     box-sizing: border-box;
+  }
+  .mdl-textfield__label,
+  .mdl-textfield--floating-label.is-invalid .mdl-textfield__label{
+    color: rgba(0,0,0,.4);
+    font-size: 16px;
   }
   .mdl-js-textfield--date{
     margin-top: -5px;
@@ -889,14 +910,15 @@ a:hover, a:focus {
       text-indent: 0!important;
     }
     &.mdl-js-textfield--dateNull{
-      text-indent: -99999px
+      text-indent: -99999px;
+      padding-right: 0;
     }
   }
   .mdl-button--colored{
-    background: rgba(0,0,0,.26);
+    background: rgba(0,0,0,.4);
     user-select:none;
     &:hover,&:focus,&:active{
-      background: rgba(0,0,0,.26);
+      background: rgba(0,0,0,.4);
     }
     &:active{
       background: #31d1e8;
@@ -909,6 +931,7 @@ a:hover, a:focus {
 
   .mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
   .mdl-textfield--floating-label.is-focused .mdl-textfield__label{
+    font-size: 12px;
     color:#31d1e8;
     &:after{
       background-color: #31d1e8;
@@ -922,9 +945,13 @@ a:hover, a:focus {
     position: absolute;
     right: 0px;
     top: 24px;
-    color: rgba(0,0,0,.26);
+    color: rgba(0,0,0,.4);
   }
 }
 .hidden{
   display: none!important;
+}
+.img-preview-filename{
+  margin-bottom: 20px;
+  display: block;
 }
