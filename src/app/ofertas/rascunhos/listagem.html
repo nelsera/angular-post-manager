@@ -41,7 +41,7 @@
             </a>           
           </div>
         
-          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <table ng-show="ofertasRascunhos.rascunhos.length" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
             <thead>
               <tr>
                 <th class="mdl-data-table__cell--non-numeric">Título</th>
@@ -51,30 +51,30 @@
                 <th>Hotéis</th>
                 <th>
                   Ações
-                  <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                  <!--button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
                     <i class="material-icons">more_vert</i>
                   </button>
                   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
                     <li class="mdl-menu__item mdl-menu__item--delete"><i class="material-icons">delete</i>Excluir selecionadas</li>
-                  </ul>
+                  </ul-->
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens de teste rascunho para o inferno</td>
+              <tr id="{{oferta.id}}" ng-repeat="oferta in ofertasRascunhos.rascunhos">
+                <td class="mdl-data-table__cell--non-numeric">{{oferta.titulo || "Sem título"}}</td>
                 <td>31/08/2016</td>
-                <td>12/12/2016</td>
-                <td>R$ 6.666,66</td>
-                <td>420</td>
+                <td>{{oferta.data_expiracao | cmdate:'dd/MM/yyyy'}}</td>
+                <td>{{oferta.preco || 0}}</td>
+                <td>{{oferta.hoteis.length || 0}}</td>
                 <td>
-                  <span for="tt1" class="mdl-tooltip">Editar rascunho</span>
-                    <a id="tt1" href="" class="link-edit mdl-js-ripple-effect">
+                  <span for="tt1{{oferta.id}}" class="mdl-tooltip">Editar rascunho</span>
+                    <a id="tt1{{oferta.id}}" href="#/oferta/{{oferta.id}}" class="link-edit mdl-js-ripple-effect">
                     <i class="material-icons">edit</i>
                     <span class="mdl-ripple"></span>
                   </a>
-                  <a id="tt2"  href="" class="link-delete mdl-js-ripple-effect">
-                    <span for="tt2" class="mdl-tooltip">Excluir rascunho</span>
+                  <a id="tt2{{oferta.id}}"  href="" ng-click="remove(oferta.id)" class="link-delete mdl-js-ripple-effect">
+                    <span for="tt2{{oferta.id}}" class="mdl-tooltip">Excluir rascunho</span>
                     <i class="material-icons">delete</i>
                     <span class="mdl-ripple"></span>
                   </a>

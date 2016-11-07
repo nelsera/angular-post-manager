@@ -3,10 +3,10 @@
 
   angular
     .module('travelplusManager')
-    .controller('NovaController', NovaController);
+    .controller('EditarController', EditarController);
 
   /** @ngInject */
-  function NovaController($location, $window, $rootScope) {
+  function EditarController($location, $window, $rootScope, $stateParams, $scope) {
     if (!$window.localStorage.getItem('logged')) {
       $location.path('/');
     }
@@ -16,6 +16,14 @@
       hoteis: []
     };
     var hotel=0;
+
+    firebase.database().ref('ofertas/'+$stateParams.id).once('value', function(snap) {
+      console.log(snap.val());
+      vm.form = snap.val();
+      vm.form.data_expiracao= new Date(snap.val().data_expiracao);
+      $('.mdl-textfield--floating-label').removeClass('is-invalid').addClass('is-dirty');
+      $scope.$apply();
+    });
 
     this.sendRascunho=function(data){
       var data = angular.copy(data);
@@ -29,7 +37,7 @@
       }  
       
       if (Object.keys(data).length > 1) {
-        firebase.database().ref('ofertas').push(data, function (err) {
+        firebase.database().ref('ofertas/'+$stateParams.id).push(data, function (err) {
           if (err) {
             $rootScope.mdlDialog({
               status: 'error',
@@ -49,8 +57,7 @@
     this.sendData = function(data) {
       var data = angular.copy(data);
       data.data_expiracao=data.data_expiracao.toString();
-      console.log(data);
-      firebase.database().ref('ofertas').push(data, function (err) {
+      firebase.database().ref('ofertas/'+$stateParams.id).update(data, function (err) {
         if (err) {
           $rootScope.mdlDialog({
             status: 'error',

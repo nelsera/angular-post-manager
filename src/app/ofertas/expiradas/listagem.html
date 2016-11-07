@@ -41,7 +41,7 @@
             </a>           
           </div>
 
-          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <table ng-show="ofertasExpiradas.expiradas.length" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
             <thead>
               <tr>
                 <th class="mdl-data-table__cell--non-numeric">Título</th>
@@ -53,58 +53,21 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens para Porto Seguro 4 noites</td>
+              <tr id="{{oferta.id}}" ng-repeat="oferta in ofertasExpiradas.expiradas">
+                <td class="mdl-data-table__cell--non-numeric">{{oferta.titulo}}</td>
                 <td>12/09/2016</td>
-                <td>31/08/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
+                <td>{{oferta.data_expiracao | cmdate:'dd/MM/yyyy'}}</td>
+                <td>{{oferta.preco}}</td>
+                <td>{{oferta.hoteis.length || 0}}</td>
                 <td>
-                  <span for="tt1" class="mdl-tooltip">Visualizar oferta</span>
-                    <a id="tt1" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
+                  <span for="tt1{{oferta.id}}" class="mdl-tooltip">Editar oferta</span>
+                    <a id="tt1{{oferta.id}}" href="#/oferta/{{oferta.id}}" class="link-edit mdl-js-ripple-effect">
+                    <i class="material-icons">edit</i>
                     <span class="mdl-ripple"></span>
                   </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens para Campos do Jordão 2 noites</td>
-                <td>12/09/2016</td>
-                <td>31/08/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt12" class="mdl-tooltip">Visualizar oferta</span>
-                    <a id="tt12" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens para Curitiba 2 noites</td>
-                <td>12/09/2016</td>
-                <td>31/08/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt13" class="mdl-tooltip">Visualizar oferta</span>
-                    <a id="tt13" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens para o nordeste 3 noites</td>
-                <td>12/09/2016</td>
-                <td>31/08/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt14" class="mdl-tooltip">Visualizar oferta</span>
-                    <a id="tt14" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
+                  <a id="tt2{{oferta.id}}"  href="" ng-click="remove(oferta.id)" class="link-delete mdl-js-ripple-effect">
+                    <span for="tt2{{oferta.id}}" class="mdl-tooltip">Excluir oferta</span>
+                    <i class="material-icons">delete</i>
                     <span class="mdl-ripple"></span>
                   </a>
                 </td>

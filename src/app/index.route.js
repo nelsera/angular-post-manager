@@ -32,6 +32,12 @@
         controller: 'NovaController',
         controllerAs: 'nova'
       })
+      .state('oferta/{id}', {
+        url: '/oferta/{id}',
+        templateUrl: 'app/ofertas/editar.html',
+        controller: 'EditarController',
+        controllerAs: 'editar'
+      })
       .state('ofertas/expiradas', {
         url: '/ofertas/expiradas',
         templateUrl: 'app/ofertas/expiradas/listagem.html',

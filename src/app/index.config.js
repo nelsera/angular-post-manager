@@ -16,6 +16,14 @@
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
+
+    firebase.initializeApp({
+      apiKey: "AIzaSyBZBmCRD-EZJUisa6Lu9cNGEHxW0FDch9E",
+      authDomain: "travelplustur-5c1d4.firebaseapp.com",
+      databaseURL: "https://travelplustur-5c1d4.firebaseio.com",
+      storageBucket: "travelplustur-5c1d4.appspot.com",
+      messagingSenderId: "364047226238"
+    });
   }
 
 })();

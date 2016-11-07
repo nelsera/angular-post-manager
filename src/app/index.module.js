@@ -2,6 +2,16 @@
   'use strict';
 
   angular
-    .module('travelplusManager', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'toastr']);
+    .module('travelplusManager', [
+    	'ngAnimate', 
+    	'ngCookies', 
+    	'ngTouch', 
+    	'ngSanitize', 
+    	'ngMessages', 
+    	'ngAria', 
+    	'ngResource', 
+    	'ui.router', 
+    	'toastr'
+    ]);
 
 })();

@@ -8,7 +8,7 @@
           <a class="mdl-navigation__link withRipple" href="#/ofertas/ativas"><i class="material-icons">delete</i>Descartar</a>
           <a class="mdl-navigation__link withRipple" href=""><i class="material-icons">visibility</i>Visualizar</a>
           
-          <a class="mdl-navigation__link withRipple" href="" ng-click="nova.sendRascunho(nova.form)"><i class="material-icons">drafts</i>Salvar rascunho</a>
+          <a class="mdl-navigation__link withRipple" href="" ng-click="editar.sendRascunho(editar.form)"><i class="material-icons">drafts</i>Salvar rascunho</a>
           
           <button class="mdl-navigation__link withRipple btn-publish" onclick="$('[type=submit]').trigger('click')" ng-disabled="form__new.$invalid"><i class="material-icons">send</i>Publicar</button>
         </nav>
@@ -36,60 +36,60 @@
               <h1 class="mdl-typography--headline">Cadastre uma nova oferta</h1>           
             </div>
             <div class="mdl-content-white mdl-cell mdl-cell--12-col">
-              <form name="form__new" ng-submit="nova.sendData(nova.form)" class="form__new mdl-grid" novalidate>
-                <input type="hidden" ng-model="nova.form.rascunho" ng-init="nova.form.rascunho=false">
+              <form name="form__new" ng-submit="editar.sendData(editar.form)" class="form__new mdl-grid" novalidate>
+                <input type="hidden" ng-model="editar.form.rascunho" ng-init="editar.form.rascunho=false">
                 <div class="mdl-cell mdl-cell--12-col">
                   <h2 class="mdl-typography--title">Destino</h2>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.form.titulo" class="mdl-textfield__input" type="text" id="sample1" maxlength="100" required>
+                    <input ng-model="editar.form.titulo" class="mdl-textfield__input" type="text" id="sample1" maxlength="100" required>
                     <label class="mdl-textfield__label" for="sample1">Título</label>
-                    <span class="mdl-textcounter">{{100 - nova.form.titulo.length}}</span>
+                    <span class="mdl-textcounter">{{100 - editar.form.titulo.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.form.descricao_oferta" class="mdl-textfield__input" type="text" id="sample2" maxlength="250" required>
+                    <input ng-model="editar.form.descricao_oferta" class="mdl-textfield__input" type="text" id="sample2" maxlength="250" required>
                     <label class="mdl-textfield__label" for="sample2">Descrição da oferta</label>
-                    <span class="mdl-textcounter">{{250 - nova.form.descricao_oferta.length}}</span>
+                    <span class="mdl-textcounter">{{250 - editar.form.descricao_oferta.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.form.descricao_destino" class="mdl-textfield__input" type="text" id="sample3" maxlength="250" required>
+                    <input ng-model="editar.form.descricao_destino" class="mdl-textfield__input" type="text" id="sample3" maxlength="250" required>
                     <label class="mdl-textfield__label" for="sample3">Descrição do destino</label>
-                    <span class="mdl-textcounter">{{250 - nova.form.descricao_destino.length}}</span>
+                    <span class="mdl-textcounter">{{250 - editar.form.descricao_destino.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.form.preco" class="mdl-textfield__input" type="text" id="sample4" maxlength="100" required>
+                    <input ng-model="editar.form.preco" class="mdl-textfield__input" type="text" id="sample4" maxlength="100" required>
                     <label class="mdl-textfield__label" for="sample4">Preço</label>
-                    <span class="mdl-textcounter">{{100 - nova.form.preco.length}}</span>
+                    <span class="mdl-textcounter">{{100 - editar.form.preco.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-js-textfield--date mdl-textfield--floating-label">
-                    <input ng-model="nova.form.data_expiracao" ng-class="{'mdl-js-textfield--dateNull': !nova.form.data_expiracao.length}" ng-focus="nova.datepicker(nova.form.data_expiracao)" ng-blur="nova.datepicker(nova.form.data_expiracao)" class="mdl-textfield__input" type="date" id="sample5" required>
+                    <input ng-model="editar.form.data_expiracao" value="editar.form.data_expiracao" ng-class="{'mdl-js-textfield--dateNull': !editar.form.data_expiracao.length}" ng-focus="editar.datepicker(editar.form.data_expiracao)" ng-blur="editar.datepicker(editar.form.data_expiracao)" class="mdl-textfield__input" type="date" id="sample5" required>
                     <label class="mdl-textfield__label" for="sample5">Data da expiração</label>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.form.identificacao_parceiro" class="mdl-textfield__input" type="text" id="sample6" maxlength="100" required>
+                    <input ng-model="editar.form.identificacao_parceiro" class="mdl-textfield__input" type="text" id="sample6" maxlength="100" required>
                     <label class="mdl-textfield__label" for="sample6">Identificação do parceiro</label>
-                    <span class="mdl-textcounter">{{100 - nova.form.identificacao_parceiro.length}}</span>
+                    <span class="mdl-textcounter">{{100 - editar.form.identificacao_parceiro.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
-                  <input id="ifDestino" class="hidden" type="file" accept="image/*" ng-model="nova.form.foto_destino" valid-file required>
+                  <input id="ifDestino" class="hidden" type="file" accept="image/*" ng-model="editar.form.foto_destino" valid-file required>
                   <label for="ifDestino" class="mdl-button mdl-button-up  mdl-js-button mdl-button--raised mdl-button--colored">
                     <i class="material-icons">photo</i>
-                    <span ng-show="!nova.form.foto_destino">Inserir foto do destino</span>
-                    <span ng-show="nova.form.foto_destino">Mudar foto do destino</span>
+                    <span ng-show="!editar.form.foto_destino">Inserir foto do destino</span>
+                    <span ng-show="editar.form.foto_destino">Mudar foto do destino</span>
                   </label>
-                  <img ng-show="nova.form.foto_destino" class="img-preview-filename" src="{{nova.form.foto_destino}}" width="100%">
+                  <img ng-show="editar.form.foto_destino" class="img-preview-filename" src="{{editar.form.foto_destino}}" width="100%">
                 </div>
                 <div class="mdl-cell mdl-cell--12-col">
                   <h2 class="mdl-typography--title">Hotéis</h2>
@@ -98,157 +98,157 @@
                 <div class="hotelBox mdl-cell mdl-cell--6-col">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[0].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
+                      <input ng-model="editar.form.hoteis[0].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
                       <label class="mdl-textfield__label" for="sample7">Nome do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[0].nome_hotel.length}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[0].nome_hotel.length}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[0].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[0].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[0].preco_hotel}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[0].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
-                    <input id="ifHotel" class="hidden" type="file" accept="image/*" ng-model="nova.form.hoteis[0].foto_hotel" valid-file>
+                    <input id="ifHotel" class="hidden" type="file" accept="image/*" ng-model="editar.form.hoteis[0].foto_hotel" valid-file>
                     <label for="ifHotel" class="mdl-button mdl-button-up mdl-js-button mdl-button--raised mdl-button--colored">
                       <i class="material-icons">photo</i>
-                      <span ng-show="!nova.form.hoteis[0].foto_hotel">Inserir foto do hotel</span>
-                      <span ng-show="nova.form.hoteis[0].foto_hotel">Mudar foto do hotel</span>
+                      <span ng-show="!editar.form.hoteis[0].foto_hotel">Inserir foto do hotel</span>
+                      <span ng-show="editar.form.hoteis[0].foto_hotel">Mudar foto do hotel</span>
                     </label>
-                    <img ng-show="nova.form.hoteis[0].foto_hotel" class="img-preview-filename" src="{{nova.form.hoteis[0].foto_hotel}}" width="50%">
+                    <img ng-show="editar.form.hoteis[0].foto_hotel" class="img-preview-filename" src="{{editar.form.hoteis[0].foto_hotel}}" width="50%">
                   </div>
                 </div>
                 <div class="hotelBox mdl-cell mdl-cell--6-col">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[1].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
+                      <input ng-model="editar.form.hoteis[1].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
                       <label class="mdl-textfield__label" for="sample7">Nome do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[1].nome_hotel.length}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[1].nome_hotel.length}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[1].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[1].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[1].preco_hotel}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[1].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
-                    <input id="ifHotel2" class="hidden" type="file" accept="image/*" ng-model="nova.form.hoteis[1].foto_hotel" valid-file>
+                    <input id="ifHotel2" class="hidden" type="file" accept="image/*" ng-model="editar.form.hoteis[1].foto_hotel" valid-file>
                     <label for="ifHotel2" class="mdl-button mdl-button-up mdl-js-button mdl-button--raised mdl-button--colored">
                       <i class="material-icons">photo</i>
-                      <span ng-show="!nova.form.hoteis[1].foto_hotel">Inserir foto do hotel</span>
-                      <span ng-show="nova.form.hoteis[1].foto_hotel">Mudar foto do hotel</span>
+                      <span ng-show="!editar.form.hoteis[1].foto_hotel">Inserir foto do hotel</span>
+                      <span ng-show="editar.form.hoteis[1].foto_hotel">Mudar foto do hotel</span>
                     </label>
-                    <img ng-show="nova.form.hoteis[1].foto_hotel" class="img-preview-filename" src="{{nova.form.hoteis[1].foto_hotel}}" width="50%">
+                    <img ng-show="editar.form.hoteis[1].foto_hotel" class="img-preview-filename" src="{{editar.form.hoteis[1].foto_hotel}}" width="50%">
                   </div>
                 </div>
                 <div class="hotelBox mdl-cell mdl-cell--6-col">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[2].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
+                      <input ng-model="editar.form.hoteis[2].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
                       <label class="mdl-textfield__label" for="sample7">Nome do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[2].nome_hotel.length}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[2].nome_hotel.length}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[2].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[2].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[2].preco_hotel}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[2].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
-                    <input id="ifHotel3" class="hidden" type="file" accept="image/*" ng-model="nova.form.hoteis[2].foto_hotel" valid-file>
+                    <input id="ifHotel3" class="hidden" type="file" accept="image/*" ng-model="editar.form.hoteis[2].foto_hotel" valid-file>
                     <label for="ifHotel3" class="mdl-button mdl-button-up mdl-js-button mdl-button--raised mdl-button--colored">
                       <i class="material-icons">photo</i>
-                      <span ng-show="!nova.form.hoteis[2].foto_hotel">Inserir foto do hotel</span>
-                      <span ng-show="nova.form.hoteis[2].foto_hotel">Mudar foto do hotel</span>
+                      <span ng-show="!editar.form.hoteis[2].foto_hotel">Inserir foto do hotel</span>
+                      <span ng-show="editar.form.hoteis[2].foto_hotel">Mudar foto do hotel</span>
                     </label>
-                    <img ng-show="nova.form.hoteis[2].foto_hotel" class="img-preview-filename" src="{{nova.form.hoteis[2].foto_hotel}}" width="50%">
+                    <img ng-show="editar.form.hoteis[2].foto_hotel" class="img-preview-filename" src="{{editar.form.hoteis[2].foto_hotel}}" width="50%">
                   </div>
                 </div>
                 <div class="hotelBox mdl-cell mdl-cell--6-col">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[3].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
+                      <input ng-model="editar.form.hoteis[3].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
                       <label class="mdl-textfield__label" for="sample7">Nome do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[3].nome_hotel.length}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[3].nome_hotel.length}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[3].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[3].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[3].preco_hotel}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[3].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
-                    <input id="ifHotel4" class="hidden" type="file" accept="image/*" ng-model="nova.form.hoteis[3].foto_hotel" valid-file>
+                    <input id="ifHotel4" class="hidden" type="file" accept="image/*" ng-model="editar.form.hoteis[3].foto_hotel" valid-file>
                     <label for="ifHotel4" class="mdl-button mdl-button-up mdl-js-button mdl-button--raised mdl-button--colored">
                       <i class="material-icons">photo</i>
-                      <span ng-show="!nova.form.hoteis[3].foto_hotel">Inserir foto do hotel</span>
-                      <span ng-show="nova.form.hoteis[3].foto_hotel">Mudar foto do hotel</span>
+                      <span ng-show="!editar.form.hoteis[3].foto_hotel">Inserir foto do hotel</span>
+                      <span ng-show="editar.form.hoteis[3].foto_hotel">Mudar foto do hotel</span>
                     </label>
-                    <img ng-show="nova.form.hoteis[3].foto_hotel" class="img-preview-filename" src="{{nova.form.hoteis[3].foto_hotel}}" width="50%">
+                    <img ng-show="editar.form.hoteis[3].foto_hotel" class="img-preview-filename" src="{{editar.form.hoteis[3].foto_hotel}}" width="50%">
                   </div>
                 </div>
                 <div class="hotelBox mdl-cell mdl-cell--6-col">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[4].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
+                      <input ng-model="editar.form.hoteis[4].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
                       <label class="mdl-textfield__label" for="sample7">Nome do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[4].nome_hotel.length}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[4].nome_hotel.length}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[4].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[4].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[4].preco_hotel}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[4].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
-                    <input id="ifHotel5" class="hidden" type="file" accept="image/*" ng-model="nova.form.hoteis[4].foto_hotel" valid-file>
+                    <input id="ifHotel5" class="hidden" type="file" accept="image/*" ng-model="editar.form.hoteis[4].foto_hotel" valid-file>
                     <label for="ifHotel5" class="mdl-button mdl-button-up mdl-js-button mdl-button--raised mdl-button--colored">
                       <i class="material-icons">photo</i>
-                      <span ng-show="!nova.form.hoteis[4].foto_hotel">Inserir foto do hotel</span>
-                      <span ng-show="nova.form.hoteis[4].foto_hotel">Mudar foto do hotel</span>
+                      <span ng-show="!editar.form.hoteis[4].foto_hotel">Inserir foto do hotel</span>
+                      <span ng-show="editar.form.hoteis[4].foto_hotel">Mudar foto do hotel</span>
                     </label>
-                    <img ng-show="nova.form.hoteis[4].foto_hotel" class="img-preview-filename" src="{{nova.form.hoteis[4].foto_hotel}}" width="50%">
+                    <img ng-show="editar.form.hoteis[4].foto_hotel" class="img-preview-filename" src="{{editar.form.hoteis[4].foto_hotel}}" width="50%">
                   </div>
                 </div>
                 <div class="hotelBox mdl-cell mdl-cell--6-col">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[5].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
+                      <input ng-model="editar.form.hoteis[5].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
                       <label class="mdl-textfield__label" for="sample7">Nome do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[5].nome_hotel.length}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[5].nome_hotel.length}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[5].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[5].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[5].preco_hotel}}</span>
+                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[5].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
-                    <input id="ifHotel6" class="hidden" type="file" accept="image/*" ng-model="nova.form.hoteis[5].foto_hotel" valid-file>
+                    <input id="ifHotel6" class="hidden" type="file" accept="image/*" ng-model="editar.form.hoteis[5].foto_hotel" valid-file>
                     <label for="ifHotel6" class="mdl-button mdl-button-up mdl-js-button mdl-button--raised mdl-button--colored">
                       <i class="material-icons">photo</i>
-                      <span ng-show="!nova.form.hoteis[5].foto_hotel">Inserir foto do hotel</span>
-                      <span ng-show="nova.form.hoteis[5].foto_hotel">Mudar foto do hotel</span>
+                      <span ng-show="!editar.form.hoteis[5].foto_hotel">Inserir foto do hotel</span>
+                      <span ng-show="editar.form.hoteis[5].foto_hotel">Mudar foto do hotel</span>
                     </label>
-                    <img ng-show="nova.form.hoteis[5].foto_hotel" class="img-preview-filename" src="{{nova.form.hoteis[5].foto_hotel}}" width="50%">
+                    <img ng-show="editar.form.hoteis[5].foto_hotel" class="img-preview-filename" src="{{editar.form.hoteis[5].foto_hotel}}" width="50%">
                   </div>
                 </div>
 
               
                 <div class="mdl-cell mdl-cell--12-col beforeHotel">
-                  <div class="box-more__hotel" ng-click="nova.addHotel()">
+                  <div class="box-more__hotel" ng-click="editar.addHotel()">
                     <button type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
                       <i class="material-icons">add</i>
                     </button> Adicionar outro hotel

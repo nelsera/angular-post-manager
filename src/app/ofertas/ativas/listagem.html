@@ -41,7 +41,7 @@
             </a>           
           </div>
         
-          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <table ng-show="ofertasAtivas.ativas.length" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
             <thead>
               <tr>
                 <th class="mdl-data-table__cell--non-numeric">Título</th>
@@ -51,257 +51,40 @@
                 <th>Hotéis</th>
                 <th>
                   Ações
-                  <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                  <!--button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
                     <i class="material-icons">more_vert</i>
                   </button>
                   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
                     <li class="mdl-menu__item mdl-menu__item--delete"><i class="material-icons">delete</i>Excluir selecionadas</li>
-                  </ul>
+                  </ul-->
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Lorem ipsum dolot it samet</td>
+              <tr id="{{oferta.id}}" ng-repeat="oferta in ofertasAtivas.ativas">
+                <td class="mdl-data-table__cell--non-numeric">{{oferta.titulo}}</td>
                 <td>02/11/2016</td>
-                <td>12/12/2016</td>
-                <td>R$ 30.800,00</td>
-                <td>4</td>
+                <td>{{oferta.data_expiracao | cmdate:'dd/MM/yyyy'}}</td>
+                <td>{{oferta.preco}}</td>
+                <td>{{oferta.hoteis.length || 0}}</td>
                 <td>
-                  <span for="tt3" class="mdl-tooltip">Visualizar oferta</span>
-                  <a id="tt3" href="" class="link-visibility mdl-js-ripple-effect">
+                  <span for="tt{{oferta.id}}" class="mdl-tooltip">Visualizar oferta</span>
+                  <a id="tt{{oferta.id}}" href="http://www.travelplustur.com.br/viagem/{{oferta.titulo}}" target="_blank" class="link-visibility mdl-js-ripple-effect">
                     <i class="material-icons">visibility</i>
                     <span class="mdl-ripple"></span>
                   </a>
-                  <span for="tt1" class="mdl-tooltip">Editar oferta</span>
-                    <a id="tt1" href="" class="link-edit mdl-js-ripple-effect">
+                  <span for="tt1{{oferta.id}}" class="mdl-tooltip">Editar oferta</span>
+                    <a id="tt1{{oferta.id}}" href="#/oferta/{{oferta.id}}" class="link-edit mdl-js-ripple-effect">
                     <i class="material-icons">edit</i>
                     <span class="mdl-ripple"></span>
                   </a>
-                  <a id="tt2"  href="" class="link-delete mdl-js-ripple-effect">
-                    <span for="tt2" class="mdl-tooltip">Excluir oferta</span>
+                  <a id="tt2{{oferta.id}}"  href="" ng-click="remove(oferta.id)" class="link-delete mdl-js-ripple-effect">
+                    <span for="tt2{{oferta.id}}" class="mdl-tooltip">Excluir oferta</span>
                     <i class="material-icons">delete</i>
                     <span class="mdl-ripple"></span>
                   </a>
                 </td>
               </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Donec ullamcorper suscipit nibh, eget dictum diam placerat a</td>
-                <td>02/11/2016</td>
-                <td>12/12/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt310" class="mdl-tooltip">Visualizar oferta</span>
-                  <a id="tt310" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <span for="tt12" class="mdl-tooltip">Editar oferta</span>
-                    <a id="tt12" href="" class="link-edit mdl-js-ripple-effect">
-                    <i class="material-icons">edit</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <a id="tt21"  href="" class="link-delete mdl-js-ripple-effect">
-                    <span for="tt21" class="mdl-tooltip">Excluir oferta</span>
-                    <i class="material-icons">delete</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Donec viverra sem sit amet nisi scelerisque sollicitudin</td>
-                <td>02/11/2016</td>
-                <td>12/12/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt31" class="mdl-tooltip">Visualizar oferta</span>
-                  <a id="tt31" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <span for="tt13" class="mdl-tooltip">Editar oferta</span>
-                    <a id="tt13" href="" class="link-edit mdl-js-ripple-effect">
-                    <i class="material-icons">edit</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <a id="tt22"  href="" class="link-delete mdl-js-ripple-effect">
-                    <span for="tt22" class="mdl-tooltip">Excluir oferta</span>
-                    <i class="material-icons">delete</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric"> Vivamus non dolor vel nibh tempor lobortis</td>
-                <td>02/11/2016</td>
-                <td>12/12/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt33" class="mdl-tooltip">Visualizar oferta</span>
-                  <a id="tt33" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <span for="tt14" class="mdl-tooltip">Editar oferta</span>
-                    <a id="tt14" href="" class="link-edit mdl-js-ripple-effect">
-                    <i class="material-icons">edit</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <a id="tt23"  href="" class="link-delete mdl-js-ripple-effect">
-                    <span for="tt23" class="mdl-tooltip">Excluir oferta</span>
-                    <i class="material-icons">delete</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens para o nordeste 3 noites</td>
-                <td>02/11/2016</td>
-                <td>12/12/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt34" class="mdl-tooltip">Visualizar oferta</span>
-                  <a id="tt34" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <span for="tt15" class="mdl-tooltip">Editar oferta</span>
-                    <a id="tt15" href="" class="link-edit mdl-js-ripple-effect">
-                    <i class="material-icons">edit</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <a id="tt24"  href="" class="link-delete mdl-js-ripple-effect">
-                    <span for="tt24" class="mdl-tooltip">Excluir oferta</span>
-                    <i class="material-icons">delete</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Nam ultricies, felis eu cursus ultrices, ex quam malesuada lorem, quis maximus urna erat non nunc</td>
-                <td>02/11/2016</td>
-                <td>12/12/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt35" class="mdl-tooltip">Visualizar oferta</span>
-                  <a id="tt35" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <span for="tt16" class="mdl-tooltip">Editar oferta</span>
-                    <a id="tt16" href="" class="link-edit mdl-js-ripple-effect">
-                    <i class="material-icons">edit</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <a id="tt25"  href="" class="link-delete mdl-js-ripple-effect">
-                    <span for="tt25" class="mdl-tooltip">Excluir oferta</span>
-                    <i class="material-icons">delete</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">raesent auctor imperdiet turpis nec egestas</td>
-                <td>02/11/2016</td>
-                <td>12/12/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt36" class="mdl-tooltip">Visualizar oferta</span>
-                  <a id="tt36" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <span for="tt17" class="mdl-tooltip">Editar oferta</span>
-                    <a id="tt17" href="" class="link-edit mdl-js-ripple-effect">
-                    <i class="material-icons">edit</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <a id="tt26"  href="" class="link-delete mdl-js-ripple-effect">
-                    <span for="tt26" class="mdl-tooltip">Excluir oferta</span>
-                    <i class="material-icons">delete</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens para o nordeste 3 noites</td>
-                <td>02/11/2016</td>
-                <td>12/12/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt37" class="mdl-tooltip">Visualizar oferta</span>
-                  <a id="tt37" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <span for="tt18" class="mdl-tooltip">Editar oferta</span>
-                    <a id="tt18" href="" class="link-edit mdl-js-ripple-effect">
-                    <i class="material-icons">edit</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <a id="tt27"  href="" class="link-delete mdl-js-ripple-effect">
-                    <span for="tt27" class="mdl-tooltip">Excluir oferta</span>
-                    <i class="material-icons">delete</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Pacote de viagens para o nordeste 3 noites</td>
-                <td>02/11/2016</td>
-                <td>12/12/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt38" class="mdl-tooltip">Visualizar oferta</span>
-                  <a id="tt38" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <span for="tt19" class="mdl-tooltip">Editar oferta</span>
-                    <a id="tt19" href="" class="link-edit mdl-js-ripple-effect">
-                    <i class="material-icons">edit</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <a id="tt28"  href="" class="link-delete mdl-js-ripple-effect">
-                    <span for="tt28" class="mdl-tooltip">Excluir oferta</span>
-                    <i class="material-icons">delete</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">Nam ultricies, felis eu cursus ultrices, ex quam malesuada lorem, quis maximus urna erat non nunc</td>
-                <td>02/11/2016</td>
-                <td>12/12/2016</td>
-                <td>R$ 2.200,00</td>
-                <td>4</td>
-                <td>
-                  <span for="tt39" class="mdl-tooltip">Visualizar oferta</span>
-                  <a id="tt39" href="" class="link-visibility mdl-js-ripple-effect">
-                    <i class="material-icons">visibility</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <span for="tt110" class="mdl-tooltip">Editar oferta</span>
-                    <a id="tt110" href="" class="link-edit mdl-js-ripple-effect">
-                    <i class="material-icons">edit</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                  <a id="tt29"  href="" class="link-delete mdl-js-ripple-effect">
-                    <span for="tt29" class="mdl-tooltip">Excluir oferta</span>
-                    <i class="material-icons">delete</i>
-                    <span class="mdl-ripple"></span>
-                  </a>
-                </td>
-              </tr>
-              
             </tbody>
           </table>
         </div>
