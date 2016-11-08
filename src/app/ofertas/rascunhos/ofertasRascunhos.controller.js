@@ -6,16 +6,16 @@
     .controller('OfertasRascunhosController', OfertasRascunhosController);
 
   /** @ngInject */
-  function OfertasRascunhosController($scope) {
+  function OfertasRascunhosController($scope, $window) {
     
-    var vm = this;
-    var ids = [];
-    var todas = [];
-    var rascunhos = [];
+    var vm = this,
+        ids = [],
+        todas = [],
+        rascunhos = [];
     
-    var starCountRef = firebase.database().ref('ofertas').once('value', function(snap) {
+    $window.firebase.database().ref('ofertas').once('value', function(snap) {
         ids = Object.keys(snap.val());
-        todas = $.map(snap.val(), function(value, index) {
+        todas = $.map(snap.val(), function(value) {
             return [value];
         });
 
@@ -23,7 +23,7 @@
             value.id= ids[index];
         });
 
-        angular.forEach(todas, function(value, index) {
+        angular.forEach(todas, function(value) {
           if ( value.rascunho ) {
             rascunhos.push(value);
           }
@@ -31,7 +31,7 @@
 
         vm.rascunhos = rascunhos.reverse();
         $scope.$apply();
-        componentHandler.upgradeAllRegistered();
+        $window.componentHandler.upgradeAllRegistered();
     });
 
   }

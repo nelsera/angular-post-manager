@@ -81,7 +81,7 @@
 
       $ripples.on('click.Ripples', function(e) {
 
-        if(!!$('.button').attr('disabled')) {
+        if($('.button').attr('disabled')) {
           return false;
         }
 
@@ -101,7 +101,7 @@
 
       });
 
-      $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+      $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function() {
         $(this).removeClass('is-active');
       });
     });

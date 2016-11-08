@@ -910,8 +910,8 @@ a:hover, a:focus {
       text-indent: 0!important;
     }
     &.mdl-js-textfield--dateNull{
-      text-indent: -99999px;
-      padding-right: 0;
+        text-indent: -99999px;
+        padding-right: 0;
     }
   }
   .mdl-button--colored{
@@ -992,4 +992,9 @@ a:hover, a:focus {
 
 .no-padding{
   padding: 0!important;
+}
+
+.mdl-js-textfield--priceNull{
+    text-indent: -99999px;
+    padding-right: 0;
 }

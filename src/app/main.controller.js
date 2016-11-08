@@ -3,18 +3,18 @@
 
     angular
         .module('travelplusManager')
-        .controller('Master', Master);
+        .controller('MainController', MainController);
 
-    function Master ($scope, $window, $location, $rootScope) {
+    function MainController ($scope, $window, $location, $rootScope, $timeout) {
         $scope.logOff = function () {
-	      $window.localStorage.removeItem('logged');
-	      $location.path('/');
-	    };
+          $window.localStorage.removeItem('logged');
+          $location.path('/');
+        };
 
         $rootScope.mdlDialog=function(obj){
           var dialog = document.querySelector('dialog');
           dialog.showModal();
-          setTimeout(function (){
+          $timeout(function (){
             dialog.close();
             $('.mdl-dialog').removeClass().addClass('mdl-dialog');
           },3000);
@@ -26,7 +26,7 @@
         };
 
         $rootScope.remove=function(id){
-            firebase.database().ref('ofertas/'+id).remove();
+            $window.firebase.database().ref('ofertas/'+id).remove();
             $('#'+id).remove();
             $rootScope.mdlDialog({
                 status: 'success',

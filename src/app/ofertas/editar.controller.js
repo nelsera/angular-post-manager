@@ -6,38 +6,42 @@
     .controller('EditarController', EditarController);
 
   /** @ngInject */
-  function EditarController($location, $window, $rootScope, $stateParams, $scope) {
+  function EditarController($location, $window, $rootScope, $stateParams, $scope, $timeout) {
     if (!$window.localStorage.getItem('logged')) {
       $location.path('/');
     }
 
     var vm = this;
-    this.form = {
+    vm.form = {
       hoteis: []
     };
     var hotel=0;
 
-    firebase.database().ref('ofertas/'+$stateParams.id).once('value', function(snap) {
-      console.log(snap.val());
+    $window.firebase.database().ref('ofertas/'+$stateParams.id).once('value', function(snap) {
       vm.form = snap.val();
       vm.form.data_expiracao= new Date(snap.val().data_expiracao);
       $('.mdl-textfield--floating-label').removeClass('is-invalid').addClass('is-dirty');
+      $('[ng-model="editar.form.data_expiracao"]').removeClass('mdl-js-textfield--dateNull');
+      if (vm.form.hoteis) hotel = vm.form.hoteis.length-1;
+      if(hotel===5){
+        $('.beforeHotel').hide(0);
+      }
       $scope.$apply();
     });
 
-    this.sendRascunho=function(data){
-      var data = angular.copy(data);
-      data.rascunho=true;
-      if (data.data_expiracao) {
-        data.data_expiracao= data.data_expiracao.toString();
+    vm.sendRascunho=function(data){
+      var obj = angular.copy(data);
+      obj.rascunho=true;
+      if (obj.data_expiracao) {
+        obj.data_expiracao= obj.data_expiracao.toString();
       } else {
         var today = new Date();
         today.setHours(0,0,0,0);
-        data.data_expiracao=today.toString();
+        obj.data_expiracao=today.toString();
       }  
       
-      if (Object.keys(data).length > 1) {
-        firebase.database().ref('ofertas/'+$stateParams.id).push(data, function (err) {
+      if (Object.keys(obj).length > 1) {
+        $window.firebase.database().ref('ofertas/'+$stateParams.id).push(obj, function (err) {
           if (err) {
             $rootScope.mdlDialog({
               status: 'error',
@@ -54,10 +58,17 @@
       }
     };
 
-    this.sendData = function(data) {
-      var data = angular.copy(data);
-      data.data_expiracao=data.data_expiracao.toString();
-      firebase.database().ref('ofertas/'+$stateParams.id).update(data, function (err) {
+    vm.sendData = function(data) {
+      var obj = angular.copy(data);
+      obj.data_expiracao=obj.data_expiracao.toString();
+
+      angular.forEach(obj.hoteis, function(value, index){
+        if(obj.hoteis[index].preco_hotel==0){
+          delete obj.hoteis[index].preco_hotel;
+        }
+      });
+
+      $window.firebase.database().ref('ofertas/'+$stateParams.id).update(obj, function (err) {
         if (err) {
           $rootScope.mdlDialog({
             status: 'error',
@@ -66,14 +77,14 @@
         } else {
           $rootScope.mdlDialog({
             status: 'success',
-            message: '<b>Parabéns!</b> Sua nova oferta já está disponível no site.', 
+            message: '<b>Parabéns!</b> Sua oferta foi editada com sucesso.', 
             redirect: '/ofertas/ativas'
           });
         }
       });
     };
 
-    this.datepicker = function (date){
+    vm.datepicker = function (date){
       if (date) {
         $('[type=date]').removeClass('mdl-js-textfield--dateNull');
       } else {
@@ -81,14 +92,14 @@
       }
     };
 
-    this.addHotel=function(){
+    vm.addHotel=function(){
       $($('.hotelBox')[++hotel]).removeClass('ng-hide');
       if(hotel===5){
         $('.beforeHotel').hide(0);
       }
     };
 
-    setTimeout(function() {
+    $timeout(function() {
       $('.hotelBox:not(:first)').addClass('ng-hide');
     },1);
   }

@@ -6,30 +6,31 @@
     .controller('NovaController', NovaController);
 
   /** @ngInject */
-  function NovaController($location, $window, $rootScope) {
+  function NovaController($location, $window, $rootScope, $timeout) {
     if (!$window.localStorage.getItem('logged')) {
       $location.path('/');
     }
 
-    var vm = this;
-    this.form = {
+    var vm=this;
+
+    vm.form = {
       hoteis: []
     };
     var hotel=0;
 
-    this.sendRascunho=function(data){
-      var data = angular.copy(data);
-      data.rascunho=true;
-      if (data.data_expiracao) {
-        data.data_expiracao= data.data_expiracao.toString();
+    vm.sendRascunho=function(data){
+      var obj = angular.copy(data);
+      obj.rascunho=true;
+      if (obj.data_expiracao) {
+        obj.data_expiracao= obj.data_expiracao.toString();
       } else {
         var today = new Date();
         today.setHours(0,0,0,0);
-        data.data_expiracao=today.toString();
+        obj.data_expiracao=today.toString();
       }  
       
-      if (Object.keys(data).length > 1) {
-        firebase.database().ref('ofertas').push(data, function (err) {
+      if (Object.keys(obj).length > 1) {
+        $window.firebase.database().ref('ofertas').push(obj, function (err) {
           if (err) {
             $rootScope.mdlDialog({
               status: 'error',
@@ -46,11 +47,17 @@
       }
     };
 
-    this.sendData = function(data) {
-      var data = angular.copy(data);
-      data.data_expiracao=data.data_expiracao.toString();
-      console.log(data);
-      firebase.database().ref('ofertas').push(data, function (err) {
+    vm.sendData = function(data) {
+      var obj = angular.copy(data);
+      obj.data_expiracao=obj.data_expiracao.toString();
+
+      angular.forEach(obj.hoteis, function(value, index){
+        if(obj.hoteis[index].preco_hotel==0){
+          delete obj.hoteis[index].preco_hotel;
+        }
+      });
+
+      $window.firebase.database().ref('ofertas').push(obj, function (err) {
         if (err) {
           $rootScope.mdlDialog({
             status: 'error',
@@ -66,22 +73,35 @@
       });
     };
 
-    this.datepicker = function (date){
+    vm.focused = function (date, el){
       if (date) {
-        $('[type=date]').removeClass('mdl-js-textfield--dateNull');
+        $(el).removeClass('mdl-js-textfield--dateNull');
       } else {
-        $('[type=date]').addClass('mdl-js-textfield--dateNull');
+        $(el).addClass('mdl-js-textfield--dateNull');
       }
     };
 
-    this.addHotel=function(){
+    vm.focusedPrice = function (date, el){
+      $(el).parent().addClass('is-invalid').removeClass('is-dirty');
+      if (date || date==0 || date==undefined) {
+        $(el).removeClass('mdl-js-textfield--priceNull');
+        if(date){
+          $(el).parent().removeClass('is-invalid').addClass('is-dirty');
+          //$(el).val(date);
+        }
+      } else {
+        $(el).addClass('mdl-js-textfield--priceNull');
+      }
+    };
+
+    vm.addHotel=function(){
       $($('.hotelBox')[++hotel]).removeClass('ng-hide');
       if(hotel===5){
         $('.beforeHotel').hide(0);
       }
     };
 
-    setTimeout(function() {
+    $timeout(function() {
       $('.hotelBox:not(:first)').addClass('ng-hide');
     },1);
   }

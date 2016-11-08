@@ -1,6 +1,7 @@
 {
   "extends": "eslint:recommended",
   "plugins": ["angular"],
+  "allow":["$$watchers"],
   "env": {
     "browser": true,
     "jasmine": true
@@ -8,6 +9,7 @@
   "globals": {
     "angular": true,
     "module": true,
-    "inject": true
+    "inject": true,
+    "$": false
   }
 }

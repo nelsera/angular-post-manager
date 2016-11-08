@@ -65,7 +65,7 @@
                 <td class="mdl-data-table__cell--non-numeric">{{oferta.titulo}}</td>
                 <td>02/11/2016</td>
                 <td>{{oferta.data_expiracao | cmdate:'dd/MM/yyyy'}}</td>
-                <td>{{oferta.preco}}</td>
+                <td>{{oferta.preco | currency:'R$ ' }}</td>
                 <td>{{oferta.hoteis.length || 0}}</td>
                 <td>
                   <span for="tt{{oferta.id}}" class="mdl-tooltip">Visualizar oferta</span>

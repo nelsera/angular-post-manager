@@ -64,14 +64,13 @@
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="nova.form.preco" class="mdl-textfield__input" type="text" id="sample4" maxlength="100" required>
+                    <input ng-model="nova.form.preco" class="mdl-textfield__input" type="text" id="sample4" required reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14" class="mdl-textfield__input" ng-class="{'mdl-js-textfield--priceNull': !nova.form.preco.length}" ng-focus="nova.focusedPrice(nova.form.preco, '#sample4')" ng-blur="nova.focusedPrice(nova.form.preco, '#sample4')">
                     <label class="mdl-textfield__label" for="sample4">Preço</label>
-                    <span class="mdl-textcounter">{{100 - nova.form.preco.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-js-textfield--date mdl-textfield--floating-label">
-                    <input ng-model="nova.form.data_expiracao" ng-class="{'mdl-js-textfield--dateNull': !nova.form.data_expiracao.length}" ng-focus="nova.datepicker(nova.form.data_expiracao)" ng-blur="nova.datepicker(nova.form.data_expiracao)" class="mdl-textfield__input" type="date" id="sample5" required>
+                    <input ng-model="nova.form.data_expiracao" ng-class="{'mdl-js-textfield--dateNull': !nova.form.data_expiracao.length}" ng-focus="nova.focused(nova.form.data_expiracao, '[type=date]')" ng-blur="nova.focused(nova.form.data_expiracao, '[type=date]')" class="mdl-textfield__input" type="date" id="sample5" required>
                     <label class="mdl-textfield__label" for="sample5">Data da expiração</label>
                   </div>
                 </div>
@@ -105,9 +104,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[0].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="nova.form.hoteis[0].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14" ng-class="{'mdl-js-textfield--priceNull': !nova.form.hoteis[0].preco_hotel.length}" ng-focus="nova.focusedPrice(nova.form.hoteis[0].preco_hotel, '#sample8')" ng-blur="nova.focusedPrice(nova.form.hoteis[0].preco_hotel, '#sample8')">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[0].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
@@ -130,9 +128,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[1].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
-                      <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[1].preco_hotel}}</span>
+                      <input ng-model="nova.form.hoteis[1].preco_hotel" class="mdl-textfield__input" type="text" id="sample9" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14" ng-class="{'mdl-js-textfield--priceNull': !nova.form.hoteis[1].preco_hotel.length}" ng-focus="nova.focusedPrice(nova.form.hoteis[1].preco_hotel, '#sample9')" ng-blur="nova.focusedPrice(nova.form.hoteis[1].preco_hotel, '#sample9')">
+                      <label class="mdl-textfield__label" for="sample9">Preço do hotel</label>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
@@ -155,9 +152,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[2].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="nova.form.hoteis[2].preco_hotel" class="mdl-textfield__input" type="text" id="sample10" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14" ng-class="{'mdl-js-textfield--priceNull': !nova.form.hoteis[2].preco_hotel.length}" ng-focus="nova.focusedPrice(nova.form.hoteis[2].preco_hotel, '#sample10')" ng-blur="nova.focusedPrice(nova.form.hoteis[2].preco_hotel, '#sample10')">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[2].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
@@ -180,9 +176,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[3].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="nova.form.hoteis[3].preco_hotel" class="mdl-textfield__input" type="text" id="sample11" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14" ng-class="{'mdl-js-textfield--priceNull': !nova.form.hoteis[3].preco_hotel.length}" ng-focus="nova.focusedPrice(nova.form.hoteis[3].preco_hotel, '#sample11')" ng-blur="nova.focusedPrice(nova.form.hoteis[3].preco_hotel, '#sample11')">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[3].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
@@ -205,9 +200,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[4].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="nova.form.hoteis[4].preco_hotel" class="mdl-textfield__input" type="text" id="sample12" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14" ng-class="{'mdl-js-textfield--priceNull': !nova.form.hoteis[2].preco_hotel.length}" ng-focus="nova.focusedPrice(nova.form.hoteis[2].preco_hotel, '#sample12')" ng-blur="nova.focusedPrice(nova.form.hoteis[2].preco_hotel, '#sample12')">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[4].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
@@ -230,9 +224,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="nova.form.hoteis[5].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="nova.form.hoteis[5].preco_hotel" class="mdl-textfield__input" type="text" id="sample13" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14" ng-class="{'mdl-js-textfield--priceNull': !nova.form.hoteis[5].preco_hotel.length}" ng-focus="nova.focusedPrice(nova.form.hoteis[5].preco_hotel, '#sample13')" ng-blur="nova.focusedPrice(nova.form.hoteis[5].preco_hotel, '#sample13')">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - nova.form.hoteis[5].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">

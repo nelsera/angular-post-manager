@@ -6,16 +6,16 @@
     .controller('OfertasExpiradasController', OfertasExpiradasController);
 
   /** @ngInject */
-  function OfertasExpiradasController($scope) {
+  function OfertasExpiradasController($scope, $window) {
     
-    var vm = this;
-    var ids = [];
-    var todas = [];
-    var expiradas = [];
+    var vm = this,
+        ids = [],
+        todas = [],
+        expiradas = [];
 
-    var starCountRef = firebase.database().ref('ofertas').once('value', function(snap) {
+    $window.firebase.database().ref('ofertas').once('value', function(snap) {
         ids = Object.keys(snap.val());
-        todas = $.map(snap.val(), function(value, index) {
+        todas = $.map(snap.val(), function(value) {
             return [value];
         });
 
@@ -23,9 +23,9 @@
             value.id= ids[index];
         });
 
-        angular.forEach(todas, function(value, index) {
-          var date = new Date(value.data_expiracao);
-          var today = new Date();
+        angular.forEach(todas, function(value) {
+          var date = new Date(value.data_expiracao),
+          today = new Date();
           today.setHours(0,0,0,0);
 
           if ( date < today && !value.rascunho ) {
@@ -35,7 +35,7 @@
 
         vm.expiradas = expiradas.reverse();
         $scope.$apply();
-        componentHandler.upgradeAllRegistered();
+        $window.componentHandler.upgradeAllRegistered();
     });
 
   }

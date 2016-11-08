@@ -29,7 +29,7 @@
         <div class="mdl-grid">
             <div class="breadcrumb__box">
               <a href="#/ofertas" class="breadcrumb">Ofertas</a>
-              Nova
+              Editar
             </div>
             
             <div class="headline-title">
@@ -64,9 +64,8 @@
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input ng-model="editar.form.preco" class="mdl-textfield__input" type="text" id="sample4" maxlength="100" required>
+                    <input ng-model="editar.form.preco" class="mdl-textfield__input" type="text" id="sample4" required reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14">
                     <label class="mdl-textfield__label" for="sample4">Preço</label>
-                    <span class="mdl-textcounter">{{100 - editar.form.preco.length}}</span>
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col">
@@ -105,9 +104,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="editar.form.hoteis[0].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[0].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[0].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
@@ -120,7 +118,7 @@
                     <img ng-show="editar.form.hoteis[0].foto_hotel" class="img-preview-filename" src="{{editar.form.hoteis[0].foto_hotel}}" width="50%">
                   </div>
                 </div>
-                <div class="hotelBox mdl-cell mdl-cell--6-col">
+                <div ng-show="editar.form.hoteis[1].nome_hotel.length || editar.form.hoteis[1].preco_hotel.length || editar.form.hoteis[1].foto_hotel.length" class="hotelBox mdl-cell mdl-cell--6-col">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                       <input ng-model="editar.form.hoteis[1].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
@@ -130,9 +128,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="editar.form.hoteis[1].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[1].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[1].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
@@ -145,7 +142,7 @@
                     <img ng-show="editar.form.hoteis[1].foto_hotel" class="img-preview-filename" src="{{editar.form.hoteis[1].foto_hotel}}" width="50%">
                   </div>
                 </div>
-                <div class="hotelBox mdl-cell mdl-cell--6-col">
+                <div ng-show="editar.form.hoteis[2].nome_hotel.length || editar.form.hoteis[2].preco_hotel.length || editar.form.hoteis[2].foto_hotel.length" class="hotelBox mdl-cell mdl-cell--6-col">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                       <input ng-model="editar.form.hoteis[2].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
@@ -155,9 +152,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="editar.form.hoteis[2].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[2].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[2].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
@@ -170,7 +166,7 @@
                     <img ng-show="editar.form.hoteis[2].foto_hotel" class="img-preview-filename" src="{{editar.form.hoteis[2].foto_hotel}}" width="50%">
                   </div>
                 </div>
-                <div class="hotelBox mdl-cell mdl-cell--6-col">
+                <div ng-show="editar.form.hoteis[3].nome_hotel.length || editar.form.hoteis[3].preco_hotel.length || editar.form.hoteis[3].foto_hotel.length" class="hotelBox mdl-cell mdl-cell--6-col">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                       <input ng-model="editar.form.hoteis[3].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
@@ -180,9 +176,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="editar.form.hoteis[3].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[3].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[3].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
@@ -195,7 +190,7 @@
                     <img ng-show="editar.form.hoteis[3].foto_hotel" class="img-preview-filename" src="{{editar.form.hoteis[3].foto_hotel}}" width="50%">
                   </div>
                 </div>
-                <div class="hotelBox mdl-cell mdl-cell--6-col">
+                <div ng-show="editar.form.hoteis[4].nome_hotel.length || editar.form.hoteis[4].preco_hotel.length || editar.form.hoteis[4].foto_hotel.length" class="hotelBox mdl-cell mdl-cell--6-col">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                       <input ng-model="editar.form.hoteis[4].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
@@ -205,9 +200,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="editar.form.hoteis[4].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[4].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[4].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
@@ -220,7 +214,7 @@
                     <img ng-show="editar.form.hoteis[4].foto_hotel" class="img-preview-filename" src="{{editar.form.hoteis[4].foto_hotel}}" width="50%">
                   </div>
                 </div>
-                <div class="hotelBox mdl-cell mdl-cell--6-col">
+                <div ng-show="editar.form.hoteis[5].nome_hotel.length || editar.form.hoteis[5].preco_hotel.length || editar.form.hoteis[5].foto_hotel.length" class="hotelBox mdl-cell mdl-cell--6-col">
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                       <input ng-model="editar.form.hoteis[5].nome_hotel" class="mdl-textfield__input" type="text" id="sample7" maxlength="100">
@@ -230,9 +224,8 @@
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input ng-model="editar.form.hoteis[5].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" maxlength="100">
+                      <input ng-model="editar.form.hoteis[5].preco_hotel" class="mdl-textfield__input" type="text" id="sample8" reverse="true" mask-money decimal="," thousands="." affixes-stay="false" prefix="'R$ '" maxlength="14">
                       <label class="mdl-textfield__label" for="sample8">Preço do hotel</label>
-                      <span class="mdl-textcounter">{{100 - editar.form.hoteis[5].preco_hotel}}</span>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">

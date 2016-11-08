@@ -6,10 +6,10 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($rootScope) {
+  function runBlock($rootScope, $window) {
 
-    $rootScope.$on('$viewContentLoaded', function(event, next) {
-      componentHandler.upgradeAllRegistered();
+    $rootScope.$on('$viewContentLoaded', function() {
+      $window.componentHandler.upgradeAllRegistered();
     });
   }
 

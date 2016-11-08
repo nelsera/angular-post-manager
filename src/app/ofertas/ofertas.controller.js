@@ -16,14 +16,14 @@
     vm.rascunhos  = 0;
     vm.expiradas  = 0;
 
-    var starCountRef = firebase.database().ref('ofertas').once('value', function(snap) {
-      var array = $.map(snap.val(), function(value, index) {
+    $window.firebase.database().ref('ofertas').once('value', function(snap) {
+      var array = $.map(snap.val(), function(value) {
           return [value];
       });
 
-      angular.forEach(array, function(index, value) {
-          var date = new Date(index.data_expiracao);
-          var today = new Date();
+      angular.forEach(array, function(index) {
+          var date = new Date(index.data_expiracao),
+          today = new Date();
           today.setHours(0,0,0,0);
 
           if (index.rascunho) {

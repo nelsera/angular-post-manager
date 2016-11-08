@@ -3,15 +3,16 @@
 
   angular
     .module('travelplusManager', [
-    	'ngAnimate', 
-    	'ngCookies', 
-    	'ngTouch', 
-    	'ngSanitize', 
-    	'ngMessages', 
-    	'ngAria', 
-    	'ngResource', 
-    	'ui.router', 
-    	'toastr'
+        'ngAnimate', 
+        'ngCookies', 
+        'ngTouch', 
+        'ngSanitize', 
+        'ngMessages', 
+        'ngAria', 
+        'ngResource', 
+        'ui.router', 
+        'toastr',
+        'maskMoney'
     ]);
 
 })();
