@@ -52,7 +52,7 @@
 body {
   font-family: Helvetica;
   -webkit-font-smoothing: antialiased;
-  background: #eee;
+  background: white;
 }
 
 a {
@@ -70,7 +70,7 @@ a:hover, a:focus {
 }
 
 .login {
-  border-top: 1px solid #31d1e8;
+  border-top: 1px solid #d39b6a;
   padding: 10px;
   @media screen and (max-width: 414px) {
     padding-top: 0;
@@ -146,7 +146,7 @@ a:hover, a:focus {
 
   h1 { color: #636363; }
 
-  h3 { color: #31d1e8; }
+  h3 { color: #d39b6a; }
 
   form {
     opacity: 0;
@@ -184,8 +184,8 @@ a:hover, a:focus {
     border-radius: 0;
     border-bottom: 1px solid #c7c7c7;
   }
-  input::-moz-selection { background: #31d1e8; color: #fff }
-  input::selection { background: #31d1e8; color: #fff}
+  input::-moz-selection { background: #d39b6a; color: #fff }
+  input::selection { background: #d39b6a; color: #fff}
 
   input:focus { outline: none; }
 
@@ -211,7 +211,7 @@ a:hover, a:focus {
     top: -20px;
     transform: scale(.75); left: -2px;
     /* font-size: 14px; */
-    color: #31d1e8;
+    color: #d39b6a;
   }
 
 
@@ -229,7 +229,7 @@ a:hover, a:focus {
     width: 0;
     bottom: 1px; 
     position: absolute;
-    background: #31d1e8; 
+    background: #d39b6a; 
     transition: all 0.2s ease;
   }
 
@@ -266,7 +266,7 @@ a:hover, a:focus {
   /* Animations */
 
   @keyframes inputHighlighter {
-    from { background: #31d1e8; }
+    from { background: #d39b6a; }
     to  { width: 0; background: transparent; }
   }
 
@@ -289,7 +289,7 @@ a:hover, a:focus {
     text-align: center;
     letter-spacing: 1px;
     background: transparent;
-    border: 1px solid #31d1e8;
+    border: 1px solid #d39b6a;
     border-radius: 2px;
     cursor: pointer;
     transition: all 0.15s ease;
@@ -314,12 +314,12 @@ a:hover, a:focus {
   /* Button modifiers */
 
   .buttonBlue {
-    background: #31d1e8;
-    text-shadow: 1px 1px 0 rgba(#31d1e8, .5);
+    background: #d39b6a;
+    text-shadow: 1px 1px 0 rgba(#d39b6a, .5);
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
   }
 
-  .buttonBlue:hover { background: #31d1e8; }
+  .buttonBlue:hover { background: #d39b6a; }
 
 
   /* Ripples container */
@@ -417,7 +417,7 @@ a:hover, a:focus {
       background: -moz-linear-gradient(top, rgba(255,255,255,1) 51%, rgba(255,255,255,0.06) 97%, rgba(255,255,255,0) 100%);
       background: -webkit-linear-gradient(top, rgba(255,255,255,1) 51%,rgba(255,255,255,0.06) 97%,rgba(255,255,255,0) 100%);
       background: linear-gradient(to bottom, rgba(255,255,255,1) 51%,rgba(255,255,255,0.06) 97%,rgba(255,255,255,0) 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d39b6a',GradientType=0 );
       opacity: .5;
   }
   .loader__text{
@@ -471,7 +471,7 @@ a:hover, a:focus {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgb(49,208,232);
+      background-color: #d39b6a;
       animation: cssload-fold-thecube 2.76s infinite linear both;
           -o-animation: cssload-fold-thecube 2.76s infinite linear both;
           -ms-animation: cssload-fold-thecube 2.76s infinite linear both;
@@ -621,7 +621,7 @@ a:hover, a:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
     display: block!important;
-    background: #31d1e8;
+    background: #d39b6a;
     .mdl-layout__header-row{
       position: relative;
     }
@@ -635,7 +635,7 @@ a:hover, a:focus {
   }
   .mdl-layout__drawer {
     .mdl-layout-title{
-      color:#31d1e8; 
+      color:#d39b6a; 
     }
   }
   header .mdl-navigation__link{
@@ -818,10 +818,10 @@ a:hover, a:focus {
   border-color: rgba(0,0,0,.35);
 }
 .mdl-checkbox.is-checked .mdl-checkbox__box-outline {
-    border-color: #31d1e8;
+    border-color: #d39b6a;
 }
 .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
-  background: #31d1e8;
+  background: #d39b6a;
 }
 
 #demo-menu-lower-right{
@@ -921,7 +921,7 @@ a:hover, a:focus {
       background: rgba(0,0,0,.4);
     }
     &:active{
-      background: #31d1e8;
+      background: #d39b6a;
     }
     i {
       position: relative;
@@ -932,9 +932,9 @@ a:hover, a:focus {
   .mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
   .mdl-textfield--floating-label.is-focused .mdl-textfield__label{
     font-size: 12px;
-    color:#31d1e8;
+    color:#d39b6a;
     &:after{
-      background-color: #31d1e8;
+      background-color: #d39b6a;
     }
   }
   .mdl-button-up{
@@ -955,7 +955,7 @@ a:hover, a:focus {
   margin-bottom: 20px;
   display: block;
   border-radius: 4px;
-  border: 4px solid #31d1e8;
+  border: 4px solid #d39b6a;
 }
 
 .mdl-dialog{
